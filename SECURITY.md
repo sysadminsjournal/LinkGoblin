@@ -6,4 +6,4 @@ We currently on support the absolute latest version of the code (the latest main
 
 ## Reporting a Vulnerability
 
-Please send all vulnerabilities via the Github private vulnerability reporting functionality.
+Please send all vulnerabilities via the [Github private vulnerability reporting functionality](https://github.com/sysadminsjournal/LinkGoblin/security/advisories/new).
