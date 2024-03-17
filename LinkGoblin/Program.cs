@@ -17,15 +17,26 @@ builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
-builder.Services.AddAuthentication(options =>
+var auth = builder.Services.AddAuthentication(options =>
     {
         options.DefaultScheme = IdentityConstants.ApplicationScheme;
         options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-    })
-    .AddIdentityCookies();
+    });
+if (bool.Parse(builder.Configuration["OpenIdConnect:Enabled"] ?? "false"))
+{
+    auth.AddOpenIdConnect(config =>
+    {
+        config.RequireHttpsMetadata = true;
+        config.MetadataAddress = builder.Configuration["OpenIdConnect:MetadataAddress"];
+        config.ClientId = builder.Configuration["OpenIdConnect:ClientId"];
+        config.ClientSecret = builder.Configuration["OpenIdConnect:ClientSecret"];
+        config.NonceCookie.SameSite = SameSiteMode.Strict;
+        config.CorrelationCookie.SameSite = SameSiteMode.Strict;
+    });
+}
+auth.AddIdentityCookies();
 
 #region Datasource
-
 try
 {
     var provider = builder.Configuration.GetSection("App")["DatabaseType"]?.ToUpper() ?? throw new InvalidOperationException("Database provider not found.");
@@ -41,8 +52,6 @@ catch (Exception e)
 {
     Console.WriteLine(e.Message);
 }
-
-
 #endregion
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -54,6 +63,13 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 builder.Services.AddRadzenComponents();
+
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.Cookie.SameSite = SameSiteMode.Strict;
+    config.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    config.Cookie.HttpOnly = true;
+});
 
 var app = builder.Build();
 
