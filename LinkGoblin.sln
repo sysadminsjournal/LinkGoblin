@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkGoblin", "LinkGoblin.csproj", "{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkGoblin", "LinkGoblin\LinkGoblin.csproj", "{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4B75E2A-0091-47F1-9C02-841352F50A06}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkGoblin.Migrations.PostgreSql", "LinkGoblin.Migrations.PostgreSql\LinkGoblin.Migrations.PostgreSql.csproj", "{511CBEF4-8220-4C52-90D1-09139D41575F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkGoblin.Migrations.Sqlite", "LinkGoblin.Migrations.Sqlite\LinkGoblin.Migrations.Sqlite.csproj", "{78AB1429-0F25-4F89-9125-A16B6B9E32A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,5 +21,13 @@ Global
 		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{511CBEF4-8220-4C52-90D1-09139D41575F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{511CBEF4-8220-4C52-90D1-09139D41575F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{511CBEF4-8220-4C52-90D1-09139D41575F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{511CBEF4-8220-4C52-90D1-09139D41575F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78AB1429-0F25-4F89-9125-A16B6B9E32A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78AB1429-0F25-4F89-9125-A16B6B9E32A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78AB1429-0F25-4F89-9125-A16B6B9E32A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78AB1429-0F25-4F89-9125-A16B6B9E32A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
