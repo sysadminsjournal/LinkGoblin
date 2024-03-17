@@ -1,0 +1,6 @@
+﻿services:
+  linkgoblin:
+    image: linkgoblin
+    build:
+      context: .
+      dockerfile: Dockerfile

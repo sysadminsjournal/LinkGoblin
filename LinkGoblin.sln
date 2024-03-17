@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkGoblin", "LinkGoblin.csproj", "{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4B75E2A-0091-47F1-9C02-841352F50A06}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF3E384-198C-4882-8A1B-4C0DB2EFB961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
