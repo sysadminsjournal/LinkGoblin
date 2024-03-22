@@ -18,6 +18,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.3"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3"/>
+        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.21.0" />
         <PackageReference Include="NodaTime" Version="3.1.11" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
         <PackageReference Include="Radzen.Blazor" Version="4.27.1" />

@@ -73,6 +73,34 @@ builder.Services.ConfigureApplicationCookie(config =>
 
 var app = builder.Build();
 
+#region Security Headers
+var policyCollection = new HeaderPolicyCollection()
+    .AddFrameOptionsDeny()
+    .AddXssProtectionBlock()
+    .AddContentTypeOptionsNoSniff()
+    .AddReferrerPolicySameOrigin()
+    .RemoveServerHeader()
+    .AddContentSecurityPolicyReportOnly(cspBuilder =>
+    {
+        cspBuilder.AddUpgradeInsecureRequests();
+        cspBuilder.AddBlockAllMixedContent();
+        cspBuilder.AddFontSrc().Self();
+        cspBuilder.AddDefaultSrc().Self();
+        cspBuilder.AddConnectSrc().Self();
+        cspBuilder.AddObjectSrc().Self();
+        cspBuilder.AddFormAction().Self();
+        cspBuilder.AddImgSrc().Self();
+        cspBuilder.AddScriptSrc().Self().UnsafeInline().UnsafeEval().ReportSample();
+        cspBuilder.AddStyleSrc().Self().StrictDynamic();
+        cspBuilder.AddMediaSrc().Self();
+        cspBuilder.AddFrameAncestors().None();
+        cspBuilder.AddBaseUri().Self();
+        cspBuilder.AddFrameSrc().Self();
+    });
+
+app.UseSecurityHeaders(policyCollection);
+#endregion
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
